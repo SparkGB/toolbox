@@ -1,0 +1,41 @@
+@mixin abpos($t: initial, $r: initial, $b: initial, $l: initial) {
+  position: absolute;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l; 
+}
+
+@mixin size($w, $h:auto) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex($j:center,$a:center) {
+  display: flex;
+  align-items: $a;
+  justify-content: $j;
+}
+
+@mixin font-setting($fz:$defaultFz, $fw:normal) {
+  font-weight: $fw;
+  font-size: $fz;
+}
+
+@mixin margin-x($l, $r:$l) {
+  margin-right: $r;
+  margin-left: $l;
+}
+
+@mixin padding-x($l, $r:$l) {
+  padding-right: $r;
+  padding-left: $l;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}

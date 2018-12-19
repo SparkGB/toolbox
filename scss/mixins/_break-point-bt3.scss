@@ -1,0 +1,23 @@
+@mixin xs-width() {
+  @media (max-width: 767px) { 
+    @content;
+  };
+}
+
+@mixin sm-width() {
+  @media (min-width: 768px) and (max-width: 991px) { 
+    @content;  
+  };
+}
+
+@mixin md-width() {
+  @media (min-width: 992px) and (max-width: 1199px) { 
+    @content;  
+  };
+}
+
+@mixin lg-width() {
+  @media (min-width: 1200px) { 
+    @content;
+  };
+}
