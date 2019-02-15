@@ -57,20 +57,31 @@
     <div class="footer area">footer</div>
   </div>
 
-  <div id="menu">
+  <div id="side-menu">
     <div class="close">x</div>
   </div>
-  <div id="menu-backdrop"></div>
 
   <script src="./side-menu.js"></script>
   <script>
-    var menu = new SideMenu({
-      el: '#menu',
-      activeBtn: '.navbar',
-      closeBtn: '.close',
-      menuWidth: '260px',
-      position: 'right',
-    })
+    var Menu = (function (options) {
+      var instance;
+
+      return function () {
+        if (!instance) {
+          instance = new SideMenu({
+            el: '#side-menu',
+            activeBtn: '.navbar',
+            closeBtn: '.close',
+            menuWidth: '260px',
+            position: 'left',
+          })
+        }
+
+        return instance;
+      }
+    })();
+
+    var sideMenu = new Menu();
   </script>
 </body>
 

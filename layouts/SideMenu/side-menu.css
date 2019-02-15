@@ -9,7 +9,7 @@
   background-color: rgba(0, 0, 0, 0.45);
 }
 
-#menu {
+#side-menu {
   position: fixed;
   top: 0;
   right: 0;
@@ -25,13 +25,13 @@
   will-change: transform;
 }
 
-#menu.left {
+#side-menu.left {
   right: auto;
   left: 0;
   transform: translateX(-100%);
 }
 
-.is-menu-visible #menu {
+.is-menu-visible #side-menu {
   transform: translateX(0);
 }
 
