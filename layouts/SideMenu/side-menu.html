@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Side Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .area {
+      display: flex;
+      align-items: center;
+      /* 避免元件被壓縮了 */
+      flex-shrink: 0;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .navbar {
+      background: #1F94FA;
+      color: #fff;
+    }
+
+    .footer {
+      margin-top: auto;
+      background: #F2F4FF;
+    }
+  </style>
+  <link rel="stylesheet" href="./side-menu.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="navbar area">navbar</div>
+    <div class="content area">content</div>
+    <div class="footer area">footer</div>
+  </div>
+
+  <div id="menu">
+    <div class="close">x</div>
+  </div>
+  <div id="menu-backdrop"></div>
+
+  <script src="./side-menu.js"></script>
+  <script>
+    var menu = new SideMenu({
+      el: '#menu',
+      activeBtn: '.navbar',
+      closeBtn: '.close',
+      menuWidth: '260px',
+      position: 'right',
+    })
+  </script>
+</body>
+
+</html>
