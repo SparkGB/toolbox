@@ -1,0 +1,31 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+  - node_modules/
+
+build:
+  stage: build
+  only:
+    - release
+  script:
+    - npm install --progress=false
+    - npm run build
+  artifacts:  
+    expire_in: 1 week
+    paths:
+      - dist
+
+deploy:
+  stage: deploy
+  only:
+    - release
+  script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+    - chmod 600 ~/.ssh/id_dsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    
+    - rsync -rav --delete dist/ /html
