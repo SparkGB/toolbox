@@ -78,3 +78,4 @@
 // 暴露出tabHeader & tabBody 的 options
 // default index 包成 function
 // 再更細拆分職責
+// tabBody fade / scroll effect
