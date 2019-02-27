@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ECharts</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1-rc1/echarts.min.js'></script>
+
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="chart-wrap">
+      <h3 class="text-center">BarChart</h3>
+      <div id="bar-chart" class="border" style="min-height: 350px;"></div>
+    </div>
+    <div class="chart-wrap">
+      <h3 class="text-center">LineChart</h3>
+      <div id="line-chart" class="border" style="min-height: 350px;"></div>
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+  <script>
+    var xAxisItems = ["襯衫", "羊毛衫", "雪紡衫", "褲子", "高跟鞋", "襪子"]
+    var data = [5, 20, 36, 10, 10, 20]
+
+    var barChart = new ChartCreator({
+      el: '#bar-chart',
+      mode: 'svg',
+      settings: {
+        legend: {
+          data: ['銷量']
+        },
+        xAxis: {
+          data: xAxisItems
+        },
+        yAxis: {},
+        series: [{
+          name: '銷量',
+          type: 'bar',
+          data: data
+        }]
+      },
+    })
+
+    barChart.update({
+      xAxis: {
+        data: ["襯衫", "羊毛衫", "雪紡衫", "褲子", "高跟鞋", "襪子", "牛仔褲"]
+      },
+      series: [{
+        data: [5 + 102, 20 + 102, 36 + 102, 10 + 102, 10 + 102, 20 + 102, 150]
+      }]
+    })
+
+    var lineChart = new ChartCreator({
+      el: '#line-chart',
+      mode: 'svg',
+      settings: {
+        legend: {
+          data: ['銷量']
+        },
+        xAxis: {
+          data: xAxisItems
+        },
+        yAxis: {},
+        series: [{
+          name: '銷量',
+          type: 'line',
+          data: data,
+        }]
+      },
+    })
+  </script>
+</body>
+
+</html>
